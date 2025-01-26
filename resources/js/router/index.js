@@ -4,6 +4,7 @@ import About from "../components/About.vue";
 import Notfound from "../components/Notfound.vue";
 import Products from "../components/Products.vue";
 import UserLogin from "../components/user/Login.vue";
+import Adminlogin from "../components/Adminlogin.vue";
 const routes = [
     {
         path : '/',
@@ -28,7 +29,11 @@ const routes = [
     {
         path : '/user/register',
         component : () => import('../components/user/Register.vue')
-    }
+    },
+    {
+        path : '/admin/login',
+        component : Adminlogin
+    },
 ];
 
 const router = createRouter({
