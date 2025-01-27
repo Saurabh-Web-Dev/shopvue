@@ -84,7 +84,7 @@ export default {
             this.successMessage = '';
             this.errorMsg = '';
 
-            console.log(values);
+            // console.log(values);
 
             // Make the POST request
             axios.post(window.api_url + 'register', values)
@@ -109,7 +109,7 @@ export default {
                 });
         }
     }
-    
+
 }
 </script>
 
