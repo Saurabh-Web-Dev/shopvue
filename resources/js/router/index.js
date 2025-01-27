@@ -5,6 +5,7 @@ import Notfound from "../components/Notfound.vue";
 import Products from "../components/Products.vue";
 import UserLogin from "../components/user/Login.vue";
 import Adminlogin from "../components/Adminlogin.vue";
+import AdminDashboard from "../components/admin/Dashboard.vue";
 const routes = [
     {
         path : '/',
@@ -34,6 +35,11 @@ const routes = [
         path : '/admin/login',
         component : Adminlogin
     },
+    {
+        path : '/admin/dashboard',
+        component : AdminDashboard
+    }
+
 ];
 
 const router = createRouter({

@@ -45,4 +45,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function authTokenEncode($json){
+        return base64_encode($json);
+    }
+
+    public function authTokenDecode($json){
+        return base64_decode($json);
+    }
 }

@@ -16,7 +16,8 @@ class AdminController extends Controller
         if (Auth::attempt($credentials)) {
             return response()->json([
                 'status' => '200',
-                'message' => 'Login successful'
+                'message' => 'Login successful',
+                'token' => Auth::user()->authTokenEncode(Auth::user())
             ], 200);
         }
 

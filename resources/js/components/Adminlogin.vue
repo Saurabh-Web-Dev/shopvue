@@ -9,7 +9,7 @@
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                     <div class="alert alert-success alert-dismissible" role="alert" v-if="successMessage">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <strong>Success!</strong> {{ successMessage }}
+                        <i class="fa fa-circle-notch text-success fa-spin fa-2x" aria-hidden="true"></i> <strong>{{ successMessage }}</strong>  
                     </div>
 
                     <div class="alert alert-danger alert-dismissible" role="alert" v-if="errorMsg">
@@ -71,6 +71,11 @@ export default {
         };
     },
     methods: {
+        redirectToDashboard(){
+            setTimeout(() => {
+                this.$router.push('dashboard');
+            },5000);
+        },
         admLogin(values) {
             // Clear previous messages
             this.successMessage = '';
@@ -87,7 +92,9 @@ export default {
                 console.log('Response Data:', res);
                 // Handle success or error based on status
                 if (res.status == 200) {
-                    this.successMessage = res.message;
+                    this.successMessage = res.message + "! Redirecting To Dashboard";
+                    localStorage.setItem('token', res.token);
+                    this.redirectToDashboard();
                 } else {
                     this.errorMsg = res.message;
                 }
