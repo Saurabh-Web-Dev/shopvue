@@ -11,22 +11,20 @@
                 </div>
                 <span class="toggle_icon" onclick="openNav()"><img src="../../../public/images/toggle-icon.png"></span>
                 <a class="logo" href="index.html"><img src="../../../public/images/logo.png"></a>
-                <form class="form-inline ">
-                    <div class="login_text">
-                        <ul>
-                            <li>
-                                <router-link to="/user/profile" v-if="isAuthenticated">
-                                    <img src="../../../public/images/user-icon.png">
-                                </router-link>
-                                <router-link to="/user/login" v-else>
-                                    <button type="button" class="btn btn-outline-secondary">Login</button>
-                                </router-link>
-                            </li>
-                            <li><a href="#"><img src="../../../public/images/bag-icon.png"></a></li>
-                            <li><a href="#"><img src="../../../public/images/search-icon.png"></a></li>
-                        </ul>
-                    </div>
-                </form>
+                <div class="login_text">
+                    <ul>
+                        <li>
+                            <router-link to="/user/profile" v-if="isAuthenticated">
+                                <img src="../../../public/images/user-icon.png">
+                            </router-link>
+                            <router-link to="/user/login" v-else>
+                                <button type="button" class="btn btn-outline-secondary">Login</button>
+                            </router-link>
+                        </li>
+                        <li><a href="#"><img src="../../../public/images/bag-icon.png"></a></li>
+                        <li><a href="#"><img src="../../../public/images/search-icon.png"></a></li>
+                    </ul>
+                </div>
             </nav>
         </div>
     </div>
@@ -45,6 +43,15 @@ export default {
             isAuthenticated.value = true;
         }
         return {isAuthenticated};
+    },
+    metaInfo: {
+        script: [
+            {
+                src: '../../../public/js/nav.js',
+                type: 'text/javascript',
+                body: true
+            }
+        ]
     }
 };
 </script>

@@ -51,8 +51,14 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import axios from 'axios';
+import router from '../router';
 
 export default {
+    setup(){
+        if(localStorage.getItem('token')){
+            router.push('dashboard');
+        }
+    },
     components: {
         Form,
         Field,
@@ -72,13 +78,17 @@ export default {
     },
     methods: {
         redirectToDashboard(){
+
             setTimeout(() => {
-                this.$router.push('dashboard');
+
+                router.push('dashboard');
+
             },5000);
         },
         admLogin(values) {
             // Clear previous messages
-            this.successMessage = '';
+            this.successMessage = 'Wait...';
+
             this.errorMsg = '';
 
             // console.log(values);
@@ -86,25 +96,38 @@ export default {
             // Make the POST request
             // add header
             let headers = new Headers({'Content-Type': 'application/json;charset=utf-8'});
+
             axios.post(window.api_url + 'admin/login', values,headers).then(response => {
-                console.log('Response:', response);
+
                 let res = response.data; // Assuming response.data is already parsed
-                console.log('Response Data:', res);
                 // Handle success or error based on status
                 if (res.status == 200) {
+
                     this.successMessage = res.message + "! Redirecting To Dashboard";
+
                     localStorage.setItem('token', res.token);
+
                     this.redirectToDashboard();
+
                 } else {
+
                     this.errorMsg = res.message;
+
                 }
             }).catch(error => {
+
                 if (error.response && error.response.data) {
+
                     let res = error.response.data;
+
                     this.errorMsg = res.message || 'An unexpected error occurred. Please try again later.';
+
                 } else {
+
                     this.errorMsg = 'Network error. Please check your connection.';
+
                 }
+
             });
         }
     } 

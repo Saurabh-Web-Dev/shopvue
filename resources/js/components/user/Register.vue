@@ -89,9 +89,9 @@ export default {
             // Make the POST request
             axios.post(window.api_url + 'register', values)
                 .then(response => {
-                    console.log('Response:', response);
+                    // console.log('Response:', response);
                     let res = response.data; // Assuming response.data is already parsed
-                    console.log('Response Data:', res);
+                    // console.log('Response Data:', res);
                     // Handle success or error based on status
                     if (res.status == 201) {
                         this.successMessage = res.message;

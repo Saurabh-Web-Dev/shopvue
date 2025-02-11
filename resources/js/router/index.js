@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "../components/Home.vue";
-import About from "../components/About.vue";
+// import About from "../components/About.vue";
 import Notfound from "../components/Notfound.vue";
-import Products from "../components/Products.vue";
-import UserLogin from "../components/user/Login.vue";
-import Adminlogin from "../components/Adminlogin.vue";
-import AdminDashboard from "../components/admin/Dashboard.vue";
+// import Products from "../components/Products.vue";
+// import UserLogin from "../components/user/Login.vue";
+// import Adminlogin from "../components/Adminlogin.vue";
+// import AdminDashboard from "../components/admin/Dashboard.vue";
 const routes = [
     {
         path : '/',
@@ -13,7 +13,7 @@ const routes = [
     },
     {
         path : '/products',
-        component : Products
+        component : () => import('../components/Products.vue')
     },
     {
         path : '/:pathMatch(.*)*',
@@ -21,11 +21,11 @@ const routes = [
     },
     {
         path : '/about',
-        component : About
+        component : () => import('../components/About.vue')
     },
     {
         path : '/user/login',
-        component : UserLogin
+        component : () => import('../components/user/Login.vue')
     },
     {
         path : '/user/register',
@@ -33,11 +33,11 @@ const routes = [
     },
     {
         path : '/admin/login',
-        component : Adminlogin
+        component : () => import('../components/Adminlogin.vue')
     },
     {
         path : '/admin/dashboard',
-        component : AdminDashboard
+        component : () => import('../components/admin/Dashboard.vue')
     }
 
 ];

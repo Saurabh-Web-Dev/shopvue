@@ -35,6 +35,8 @@
         <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <!-- Custom fonts for this template-->
+        
         
         
         @vite('resources/css/app.css');
@@ -45,6 +47,8 @@
     </body>
 </html>
 </script>
+    <!-- Bootstrap core JavaScript-->
+    
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
